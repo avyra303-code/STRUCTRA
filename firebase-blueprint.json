@@ -1,0 +1,32 @@
+{
+  "entities": {
+    "subscriber": {
+      "title": "Newsletter Subscriber",
+      "description": "Represents a user who has signed up for the newsletter.",
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "The email address of the subscriber."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of when the user subscribed."
+        },
+        "source": {
+          "type": "string",
+          "description": "Where the user signed up from (e.g., 'home_page')."
+        }
+      },
+      "required": ["email", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/subscribers/{subscriberId}": {
+      "schema": "subscriber",
+      "description": "Collection of newsletter subscribers."
+    }
+  }
+}
